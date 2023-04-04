@@ -1,0 +1,15 @@
+D:\Github Repositories\DentistSystem\DentistSystem\bin\Debug\DentistSystem.exe.config
+D:\Github Repositories\DentistSystem\DentistSystem\bin\Debug\DentistSystem.exe
+D:\Github Repositories\DentistSystem\DentistSystem\bin\Debug\DentistSystem.pdb
+D:\Github Repositories\DentistSystem\DentistSystem\bin\Debug\DentistSystem.xml
+D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.vbproj.AssemblyReference.cache
+D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.vbproj.SuggestedBindingRedirects.cache
+D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.Form1.resources
+D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.Resources.resources
+D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.vbproj.GenerateResource.cache
+D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.vbproj.CoreCompileInputs.cache
+D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.exe
+D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.xml
+D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.pdb
+D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.Patient.resources
+D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.Visit.resources
