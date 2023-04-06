@@ -24,6 +24,8 @@ Partial Class Patient
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.textBoxPatientName = New System.Windows.Forms.TextBox()
+        Me.textBoxPhoneNumber = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -42,11 +44,29 @@ Partial Class Patient
         Me.textBoxPatientName.Size = New System.Drawing.Size(100, 22)
         Me.textBoxPatientName.TabIndex = 1
         '
+        'textBoxPhoneNumber
+        '
+        Me.textBoxPhoneNumber.Location = New System.Drawing.Point(188, 128)
+        Me.textBoxPhoneNumber.Name = "textBoxPhoneNumber"
+        Me.textBoxPhoneNumber.Size = New System.Drawing.Size(100, 22)
+        Me.textBoxPhoneNumber.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(69, 128)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(97, 16)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Phone Number"
+        '
         'Patient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.textBoxPhoneNumber)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.textBoxPatientName)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -59,4 +79,6 @@ Partial Class Patient
 
     Friend WithEvents Label1 As Label
     Friend WithEvents textBoxPatientName As TextBox
+    Friend WithEvents textBoxPhoneNumber As TextBox
+    Friend WithEvents Label2 As Label
 End Class
