@@ -25,6 +25,7 @@ Partial Class MainForm
         Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Patients")
         Me.treeView = New System.Windows.Forms.TreeView()
         Me.panelMain = New System.Windows.Forms.Panel()
+        Me.buttonAddPatient = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'treeView
@@ -39,16 +40,26 @@ Partial Class MainForm
         '
         'panelMain
         '
-        Me.panelMain.Location = New System.Drawing.Point(272, 12)
+        Me.panelMain.Location = New System.Drawing.Point(272, 64)
         Me.panelMain.Name = "panelMain"
-        Me.panelMain.Size = New System.Drawing.Size(819, 555)
+        Me.panelMain.Size = New System.Drawing.Size(819, 503)
         Me.panelMain.TabIndex = 1
+        '
+        'buttonAddPatient
+        '
+        Me.buttonAddPatient.Location = New System.Drawing.Point(12, 12)
+        Me.buttonAddPatient.Name = "buttonAddPatient"
+        Me.buttonAddPatient.Size = New System.Drawing.Size(109, 23)
+        Me.buttonAddPatient.TabIndex = 2
+        Me.buttonAddPatient.Text = "Add Patient"
+        Me.buttonAddPatient.UseVisualStyleBackColor = True
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1103, 579)
+        Me.Controls.Add(Me.buttonAddPatient)
         Me.Controls.Add(Me.panelMain)
         Me.Controls.Add(Me.treeView)
         Me.Name = "MainForm"
@@ -59,4 +70,5 @@ Partial Class MainForm
 
     Friend WithEvents treeView As Windows.Forms.TreeView
     Friend WithEvents panelMain As Panel
+    Friend WithEvents buttonAddPatient As Button
 End Class

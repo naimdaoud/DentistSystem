@@ -56,3 +56,5 @@ D:\Github Repositories\DentistSystem\DentistSystem\bin\Debug\System.Text.Encodin
 D:\Github Repositories\DentistSystem\DentistSystem\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.vbproj.CopyComplete
 D:\Github Repositories\DentistSystem\DentistSystem\obj\Debug\DentistSystem.MainForm.resources
+D:\Github Repositories\DentistSystem\DentistSystem\bin\Debug\MongoDB.Driver.Legacy.dll
+D:\Github Repositories\DentistSystem\DentistSystem\bin\Debug\MongoDB.Driver.Legacy.xml

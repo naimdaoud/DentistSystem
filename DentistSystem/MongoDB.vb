@@ -8,19 +8,47 @@ Module MongoDB
         Dim database As IMongoDatabase = client.GetDatabase(databaseName)
         Return database
     End Function
-    Public Function getPatients(ByVal database As IMongoDatabase, ByVal collectionName As String)
-        ' Retrieve the data from the MongoDB database
-        Dim collection As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)(collectionName)
-        Dim cursor As IFindFluent(Of BsonDocument, BsonDocument) = collection.Find(New BsonDocument)
-        Dim patients As List(Of BsonDocument) = cursor.ToList
-        Return patients
-    End Function
-
-    Public Function getVisits(ByVal database As IMongoDatabase, ByVal collectionName As String)
+    Public Function getCollection(ByVal database As IMongoDatabase, ByVal collectionName As String)
         ' Retrieve the data from the MongoDB database
         Dim collection As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)(collectionName)
         Dim cursor As IFindFluent(Of BsonDocument, BsonDocument) = collection.Find(New BsonDocument)
         Dim visits As List(Of BsonDocument) = cursor.ToList
         Return visits
+    End Function
+    Public Function getPatientVisits(ByVal database As IMongoDatabase, ByVal patientId As String)
+        Dim collection As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("Visits")
+        Dim filter As BsonDocument = New BsonDocument("patientId", patientId)
+        Dim sort As SortDefinition(Of BsonDocument) = Builders(Of BsonDocument).Sort.Ascending("name")
+        Dim cursor As IFindFluent(Of BsonDocument, BsonDocument) = collection.Find(filter).Sort(sort)
+        Dim visits As List(Of BsonDocument) = cursor.ToList
+        Return visits
+    End Function
+    Public Function getPatientInformation(ByVal patientId As String, ByVal database As IMongoDatabase)
+        Dim collection As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("Patients")
+        Dim objectId As ObjectId = New ObjectId(patientId)
+        Dim filter As FilterDefinition(Of BsonDocument) = Builders(Of BsonDocument).Filter.Eq(Of ObjectId)("_id", objectId)
+        Dim document As BsonDocument = collection.Find(filter).FirstOrDefault()
+        Return document
+    End Function
+    Public Function getVisitInformation(ByVal visitId As String, ByVal database As IMongoDatabase)
+        Dim collection As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("Visits")
+        Dim objectId As ObjectId = New ObjectId(visitId)
+        Dim filter As FilterDefinition(Of BsonDocument) = Builders(Of BsonDocument).Filter.Eq(Of ObjectId)("_id", objectId)
+        Dim document As BsonDocument = collection.Find(filter).FirstOrDefault()
+        Return document
+    End Function
+    Public Function addPatient(ByVal database As IMongoDatabase, ByVal name As String, Optional ByVal mobileNumber As String = "", Optional ByVal dateOfBirth As String = "", Optional ByVal caseDescription As String = "")
+        Try
+            Dim collection As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("Patients")
+            Dim document As New BsonDocument()
+            document.Add("name", name)
+            document.Add("mobileNumber", mobileNumber)
+            document.Add("dateOfBirth", dateOfBirth)
+            document.Add("caseDescription", caseDescription)
+            collection.InsertOneAsync(document)
+            Return "Patient Added"
+        Catch ex As Exception
+            Return ex.Message
+        End Try
     End Function
 End Module

@@ -26,6 +26,10 @@ Partial Class Patient
         Me.textBoxPatientName = New System.Windows.Forms.TextBox()
         Me.textBoxPhoneNumber = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.dateTimePickerDateOfBirth = New System.Windows.Forms.DateTimePicker()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.richTextBoxCaseDescription = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -39,14 +43,14 @@ Partial Class Patient
         '
         'textBoxPatientName
         '
-        Me.textBoxPatientName.Location = New System.Drawing.Point(188, 57)
+        Me.textBoxPatientName.Location = New System.Drawing.Point(217, 57)
         Me.textBoxPatientName.Name = "textBoxPatientName"
         Me.textBoxPatientName.Size = New System.Drawing.Size(100, 22)
         Me.textBoxPatientName.TabIndex = 1
         '
         'textBoxPhoneNumber
         '
-        Me.textBoxPhoneNumber.Location = New System.Drawing.Point(188, 128)
+        Me.textBoxPhoneNumber.Location = New System.Drawing.Point(217, 128)
         Me.textBoxPhoneNumber.Name = "textBoxPhoneNumber"
         Me.textBoxPhoneNumber.Size = New System.Drawing.Size(100, 22)
         Me.textBoxPhoneNumber.TabIndex = 3
@@ -60,11 +64,49 @@ Partial Class Patient
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Phone Number"
         '
+        'dateTimePickerDateOfBirth
+        '
+        Me.dateTimePickerDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dateTimePickerDateOfBirth.Location = New System.Drawing.Point(217, 190)
+        Me.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth"
+        Me.dateTimePickerDateOfBirth.Size = New System.Drawing.Size(200, 22)
+        Me.dateTimePickerDateOfBirth.TabIndex = 4
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(72, 190)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(79, 16)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Date of Birth"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(75, 267)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(110, 16)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Case Description"
+        '
+        'richTextBoxCaseDescription
+        '
+        Me.richTextBoxCaseDescription.Location = New System.Drawing.Point(217, 267)
+        Me.richTextBoxCaseDescription.Name = "richTextBoxCaseDescription"
+        Me.richTextBoxCaseDescription.Size = New System.Drawing.Size(200, 96)
+        Me.richTextBoxCaseDescription.TabIndex = 8
+        Me.richTextBoxCaseDescription.Text = ""
+        '
         'Patient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.richTextBoxCaseDescription)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.dateTimePickerDateOfBirth)
         Me.Controls.Add(Me.textBoxPhoneNumber)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.textBoxPatientName)
@@ -81,4 +123,8 @@ Partial Class Patient
     Friend WithEvents textBoxPatientName As TextBox
     Friend WithEvents textBoxPhoneNumber As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents dateTimePickerDateOfBirth As DateTimePicker
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents richTextBoxCaseDescription As RichTextBox
 End Class
