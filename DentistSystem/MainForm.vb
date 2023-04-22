@@ -2,8 +2,8 @@
 
 Public Class MainForm
     Dim database As IMongoDatabase = MongoConnect("mongodb://localhost", "PMS")
-    Private Sub treeView_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles treeView.AfterSelect
-        Dim selectedNode = treeView.SelectedNode
+    Private Sub treeView_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles treeViewMain.AfterSelect
+        Dim selectedNode = treeViewMain.SelectedNode
         If selectedNode.Name = "Patients" Then
             panelMain.Hide()
         ElseIf selectedNode.ToString.Contains("Visit") = False Then
@@ -23,6 +23,15 @@ Public Class MainForm
     End Sub
 
     Private Sub buttonAddPatient_Click(sender As Object, e As EventArgs) Handles buttonAddPatient.Click
-        ShowAddForm(Patient)
+        ShowAddPatientForm()
+    End Sub
+
+    Private Sub buttonAddVisit_Click(sender As Object, e As EventArgs) Handles buttonAddVisit.Click
+        Dim selectedNode = treeViewMain.SelectedNode
+        If selectedNode Is Nothing Or selectedNode.ToString.Contains("Visit") Or selectedNode.ToString.Contains("Patients") Then
+            MsgBox("Please select a patient to add visit!")
+        Else
+            ShowAddVisitForm(selectedNode.Name)
+        End If
     End Sub
 End Class

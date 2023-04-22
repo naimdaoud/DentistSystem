@@ -12,8 +12,8 @@ Module MongoDB
         ' Retrieve the data from the MongoDB database
         Dim collection As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)(collectionName)
         Dim cursor As IFindFluent(Of BsonDocument, BsonDocument) = collection.Find(New BsonDocument)
-        Dim visits As List(Of BsonDocument) = cursor.ToList
-        Return visits
+        Dim col As List(Of BsonDocument) = cursor.ToList
+        Return col
     End Function
     Public Function getPatientVisits(ByVal database As IMongoDatabase, ByVal patientId As String)
         Dim collection As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("Visits")
@@ -45,8 +45,24 @@ Module MongoDB
             document.Add("mobileNumber", mobileNumber)
             document.Add("dateOfBirth", dateOfBirth)
             document.Add("caseDescription", caseDescription)
-            collection.InsertOneAsync(document)
-            Return "Patient Added"
+            Dim result = collection.InsertOneAsync(document)
+            Return result.Status
+        Catch ex As Exception
+            Return ex.Message
+        End Try
+    End Function
+    Public Function addVisit(ByVal database As IMongoDatabase, ByVal number As String, ByVal visitDate As String, ByVal visitType As String, ByVal patientId As String, Optional ByVal amountPaid As String = "", Optional ByVal notes As String = "")
+        Try
+            Dim collection As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("Visits")
+            Dim document As New BsonDocument()
+            document.Add("number", number)
+            document.Add("date", visitDate)
+            document.Add("visitType", visitType)
+            document.Add("patientId", patientId)
+            document.Add("amountPaid", amountPaid)
+            document.Add("notes", notes)
+            Dim result = collection.InsertOneAsync(document)
+            Return result.Status
         Catch ex As Exception
             Return ex.Message
         End Try
