@@ -67,4 +67,26 @@ Module MongoDB
             Return ex.Message
         End Try
     End Function
+    Public Function deletePatient(ByVal database As IMongoDatabase, ByVal patientId As String)
+        Try
+            Dim collection As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("Patients")
+            Dim objectId As ObjectId = New ObjectId(patientId)
+            Dim filter = Builders(Of BsonDocument).Filter.Eq(Of ObjectId)("_id", objectId)
+            Dim result = collection.DeleteOne(filter)
+            Return result.ToString
+        Catch ex As Exception
+            Return ex.Message
+        End Try
+    End Function
+    Public Function deleteVisit(ByVal database As IMongoDatabase, ByVal visitId As String)
+        Try
+            Dim collection As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("Visits")
+            Dim objectId As ObjectId = New ObjectId(visitId)
+            Dim filter = Builders(Of BsonDocument).Filter.Eq(Of ObjectId)("_id", objectId)
+            Dim result = collection.DeleteOne(filter)
+            Return result.ToString
+        Catch ex As Exception
+            Return ex.Message
+        End Try
+    End Function
 End Module
